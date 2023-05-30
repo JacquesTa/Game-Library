@@ -1,0 +1,70 @@
+<div
+  class="flex justify-center items-center text-7xl -mt-10 pb-7 underline decoration-blue"
+>
+  <span class="text-white">VI-</span>
+  <span class="text-blue">Li</span>
+</div>
+<div
+  class="flex justify-center items-center text-white font-poppins font-normal text-4xl pb-16"
+>
+  The best video games library.
+</div>
+<div class="flex flex-col gap-4">
+  <app-searchbar></app-searchbar>
+
+  <div class="secDiv flex items-center gap-10 justify-center">
+    <div class="singleSearch flex items-center gap-2">
+      <mat-form-field class="">
+        <mat-label class="text-white">Sort</mat-label>
+        <mat-select
+          panelClass="sort-select"
+          ngModel="sort"
+          (selectionChange)="searchGames(this.sort)"
+        >
+          <mat-option value="name">Name</mat-option>
+          <mat-option value="released">Released</mat-option>
+          <mat-option value="added">Added</mat-option>
+          <mat-option value="created">Created</mat-option>
+          <mat-option value="updated">Updated</mat-option>
+          <mat-option value="rating">Rating</mat-option>
+          <mat-option value="metacritic">Metacritic</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-wrap justify-center m-5 max-w-7xl">
+  <ng-container *ngFor="let game of games">
+    <div
+      class="w-72 m-3 h-80 overflow-hidden rounded-md bg-white shadow-md shadow-blue duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1"
+    >
+      <div class="bg-black relative h-44 text-white text-center">
+        <img
+          *ngIf="game.background_image"
+          src="{{ game.background_image }}"
+          alt="thumbnail"
+          class="absolute top-0 left-0 m-0 h-44 w-full"
+        />
+        <p *ngIf="!game.background_image" class="text-white">
+          No image available
+        </p>
+      </div>
+      <div class="p-5 flex flex-col justify-end h-40">
+        <p
+          class="text-gray font-semibold text-2xl mb-5 text-ellipsis overflow-hidden whitespace-nowrap"
+        >
+          {{ game.name }}
+        </p>
+        <div class="flex">
+          <img
+            *ngFor="let platform of game.parent_platforms"
+            class="w-5 mr-3"
+            src="assets/images/icons/{{ platform.platform.slug }}.png"
+            alt="{{ platform.platform.slug }}"
+          />
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

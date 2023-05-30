@@ -1,0 +1,24 @@
+<form
+  action=""
+  class="flex items-center justify-center"
+  #form="ngForm"
+  (ngSubmit)="onSubmit(form)"
+>
+  <div class="flex justify-between items-center rounded-lg gap-3 bg-white">
+    <div class="flex gap-2 items-center p-4">
+      <mat-icon>search</mat-icon>
+      <input
+        type="text"
+        class="bg-transparent text-blueColor focus:outline-none w-full"
+        placeholder="Enter game here..."
+      />
+      <mat-icon>clear</mat-icon>
+    </div>
+
+    <button
+      class="border-none outline-none bg-blue p-5 border-l-black rounded-tr-md rounded-br-md text-white font-semibold duration-300 cursor-pointer hover:text-blue hover:bg-white hover:border-0 hover:border-blue"
+    >
+      search
+    </button>
+  </div>
+</form>
