@@ -1,11 +1,12 @@
 export interface Game {
   background_image: string;
   name: string;
+  id: string;
   released: string;
   metacritic_url: string;
   website: string;
   description: string;
-  metacritic: string;
+  metacritic: number;
   genres: Genre[];
   parent_platforms: Parent_platform[];
   publishers: Publishers[];

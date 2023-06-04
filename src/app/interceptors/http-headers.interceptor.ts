@@ -22,7 +22,7 @@ export class HttpHeadersInterceptor implements HttpInterceptor {
       },
 
       setParams: {
-        key: 'e40e743af2c94b0c916a8aa618fb4473',
+        key: 'fcce8e0054a34477ae6718db42e9540c',
       },
     });
     return next.handle(req);
